@@ -25,17 +25,21 @@ def index(request):
     all_category = Category.objects.all()
     all_subcategory = Subcategory.objects.all()
 
+    # all_subcategory = Subcategory.objects.filter(category_id = "1").values()
+
     # all_category = Category.objects.all()
     # all_subcategory = {
     #     category: Subcategory.objects.filter(category=category)
     #     for category in all_category
     # }
 
-
+    context = {
+                'all_posts':all_posts,'all_category':all_category,'all_subcategory':all_subcategory,
+    }
 
 
             
-    return render(request,'blog/home-standard.html',{'all_posts':all_posts,'all_category':all_category,'all_subcategory':all_subcategory})
+    return render(request,'blog/home-standard.html',context)
 
 
 def index2(request,post_id):

@@ -634,34 +634,25 @@
                             </div>
                             <ul class="banner-category-list">
 
-                                {% comment %} {% if all_posts %} {% endcomment %}
                                 {% for category in all_category  %}
-                                {% comment %} {% for subcategory in all_subcategory  %} {% endcomment %}
                                 <li class="banner-category-item">
                                     <a href="#">
                                         <i class="flaticon-vegetable"></i>
                                         <span>{{category.name}}</span>
-                                        {% comment %} <span>vegetables</span> {% endcomment %}
                                     </a>
                                     <div class="banner-category-dropdown">
                                         <h5>{{category.name}}</h5>
                                         <div class="banner-sub-category">
                                             <ul>
-                                                {% comment %} {% for posts in all_posts %}
-                                                <li><a href="#">{{posts.title}}</a></li>
-                                                {% endfor %} {% endcomment %}
-                                {% for subcategory in all_subcategory  %}
-                                <li><a href="#">{{subcategory.subname }}</a></li>
-                                {% endfor %}
+                                                    {% for subcategory in category.subcategory_set.all %}
+                                                        <li><a href="#">{{subcategory.subname }}</a></li>
+                                                    {% endfor %}
                                             </ul>
                                             
                                         </div>
                                     </div>
                                 </li>
-                                {% comment %} {% endfor %} {% endcomment %}
                                 {% endfor %}
-                                {% comment %} {% endif %} {% endcomment %}
-                                
                             </ul>
                         </div>
                     </div>
